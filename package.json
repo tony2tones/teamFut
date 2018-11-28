@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@material/textfield": "^0.40.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "material-components-web": "^0.41.1",
     "react-router-dom": "^4.3.1"
   }
