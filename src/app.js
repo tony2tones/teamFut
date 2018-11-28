@@ -11,8 +11,8 @@ const App = () => {
       <div className="App">
         <Navbar />
         <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route path="/project/:id" component={ProjectDetails} />
+            <Route exact path='/' component={Dashboard} />
+            <Route path='/project/:id' component={ProjectDetails} />
         </Switch>
       </div>
     </BrowserRouter>
