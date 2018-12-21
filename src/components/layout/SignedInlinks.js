@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions'
 
-const SignedInLinks = () => {
+const SignedInLinks = (props) => {
   return (
     <ul className="right">
         <li><NavLink to="/create">New Event</NavLink></li>
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null,mapDispatchToProps)(SignedInLinks);
+export default connect(null, mapDispatchToProps)(SignedInLinks);
