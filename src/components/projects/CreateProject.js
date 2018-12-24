@@ -20,7 +20,6 @@ class CreateProject extends Component {
         this.props.createProject(this.state)
     }
     render() {
-
         const { auth } = this.props;
         if(!auth.uid) return <Redirect to='/signin' />
         return (
@@ -44,7 +43,7 @@ class CreateProject extends Component {
     }
 }
 
-const mapStateToProps =(state) => {
+const mapStateToProps = (state) => {
     return {
         auth:state.firebase.auth
     }
