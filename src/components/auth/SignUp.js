@@ -49,7 +49,7 @@ class SignUp extends Component {
             <button className="btn blue lighten-1 z-depth-0">Submit</button>
           </div>
           <div className="red-text">
-            {/* {authError ? <p> {authError} </p> : null} */}
+            {authError ? <p> {authError} </p> : null}
           </div>
         </form>
       </div>
