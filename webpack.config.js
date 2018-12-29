@@ -32,7 +32,7 @@ output: {
     ]
   },
   devServer: {
-    historyApiFallback : true,
+    historyApiFallback : true
   },
   plugins: [
     new HtmlWebPackPlugin({
