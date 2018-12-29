@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SignedInLinks from "./SignedInlinks";
 import SignedOutLinks from "./SignedOutlinks";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import logo from '../../assets/img/logo1.png';
 
 const NavBar = (props) => {
   const { auth, profile } = props;
@@ -11,7 +12,7 @@ const NavBar = (props) => {
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
-        <Link to="/" className="brand-logo">TeamFut</Link>
+        <Link to="/" className="brand-logo">TeamFut <img src={logo} /></Link>
         { links }
       </div>
     </nav>

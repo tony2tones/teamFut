@@ -51,6 +51,7 @@
     "redux": "^4.0.1",
     "redux-firestore": "^0.6.0",
     "redux-thunk": "^2.3.0",
-    "timeago.js": "^4.0.0-beta.2"
+    "timeago.js": "^4.0.0-beta.2",
+    "url-loader": "^1.1.2"
   }
 }
