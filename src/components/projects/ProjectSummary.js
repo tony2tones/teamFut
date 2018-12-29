@@ -1,4 +1,5 @@
 import React from "react";
+import {format} from 'timeago.js';
 
 const ProjectSummary = ({project}) => {
   console.log(project.createdAt.toDate().toString());
@@ -9,7 +10,7 @@ const ProjectSummary = ({project}) => {
         <div className="card-content grey-text text-darken-3">
           <span className="card-title">{project.title} </span>
           <p>Posted by {project.authorFirstName} {project.authorLastName}</p>
-          <p className="grey-text"> {project.createdAt.toDate().toString()} </p>
+          <p className="grey-text"> {format(project.createdAt.toDate().toString())} </p>
         </div>
       </div>
     </div>
