@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from 'react-router-dom';
+import {format} from 'timeago.js';
 
 const ProjectDetails = props => {
   const { project, auth } = props;
@@ -19,7 +20,7 @@ const ProjectDetails = props => {
             {" "}
             Posted by {project.authorFirstName} {project.authorLastName}
           </div>
-          <div>2nd September 2am</div>
+          <div>{format(new Date(project.createdAt.toDate().toString()))}</div>
         </div>
       </div>
     );
