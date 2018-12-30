@@ -5,6 +5,12 @@ import SignedOutLinks from "./SignedOutlinks";
 import { connect } from 'react-redux';
 import logo from '../../assets/img/logo1.png';
 
+var imageStyle = {
+  paddingTop: "10px",
+  width: "40px",
+  hieght: "40px"
+};
+
 const NavBar = (props) => {
   const { auth, profile } = props;
   
@@ -12,7 +18,7 @@ const NavBar = (props) => {
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
-        <Link to="/" className="brand-logo">TeamFut <img src={logo} /></Link>
+        <Link to="/" className="brand-logo left"><span><img src={logo} style={imageStyle} /></span> TeamFut </Link>
         { links }
       </div>
     </nav>
