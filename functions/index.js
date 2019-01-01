@@ -27,7 +27,8 @@ exports.projectCreated = functions.firestore
 
 exports.userJoined = functions.auth.user()
     .onCreate(user => {
-        return admin.firestore().collection('users').doc(user.uid).then(doc => {
+        return admin.firestore().collection('users')
+        .doc(user.uid).get().then(doc => {
             
             const newUser = doc.data()
             const notification = {
