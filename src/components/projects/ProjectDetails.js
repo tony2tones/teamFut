@@ -24,11 +24,9 @@ const ProjectDetails = props => {
           <div className="grey-text">
             {" "}
             {hdate.prettyPrint(
-              new Date(project.createdAt.toDate().toString())
-            )}{" "}
+              new Date(project.createdAt.toDate().toString()) , { showTime: true })}{" "}
           </div>
         </div>
-        {/* </div> */}
       </div>
     );
   } else {

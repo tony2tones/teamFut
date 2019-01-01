@@ -1,6 +1,5 @@
 import React from "react";
 import {format} from 'timeago.js';
-import hdate from 'human-date';
 
 var cardStyle = {
   boxShadow : 'rgba(0, 0, 0, 0.4)'
