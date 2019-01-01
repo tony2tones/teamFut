@@ -2,26 +2,33 @@ import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
-import { Redirect } from 'react-router-dom';
-import {format} from 'timeago.js';
+import { Redirect } from "react-router-dom";
+import { format } from "timeago.js";
+import hdate from "human-date";
 
 const ProjectDetails = props => {
   const { project, auth } = props;
-  if(!auth.uid) return <Redirect to='/signin' />
+  if (!auth.uid) return <Redirect to="/signin" />;
   if (project) {
     return (
       <div className="container section project-details">
-        <div className="card-content">
-          <div className="card-title">{project.title}</div>
+        <div className="card-content card-action grey lighten-4 grey text">
+          <div className="card-title">
+            <h5>{project.title}</h5>
+          </div>
           <p> {project.content}</p>
-        </div>
-        <div className="card-action grey lighten-4 grey text">
           <div>
             {" "}
             Posted by {project.authorFirstName} {project.authorLastName}
           </div>
-          <div>{format(new Date(project.createdAt.toDate().toString()))}</div>
+          <div className="grey-text">
+            {" "}
+            {hdate.prettyPrint(
+              new Date(project.createdAt.toDate().toString())
+            )}{" "}
+          </div>
         </div>
+        {/* </div> */}
       </div>
     );
   } else {
@@ -35,7 +42,7 @@ const mapStateToProps = (state, ownProps) => {
   const project = projects ? projects[id] : null;
   return {
     project: project,
-    auth : state.firebase.auth
+    auth: state.firebase.auth
   };
 };
 
