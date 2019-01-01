@@ -14,7 +14,7 @@ const createNotification = (notification => {
 })
 
 exports.projectCreated = functions.firestore
-    .document('project/{projectId}')
+    .document('projects/{projectId}')
     .onCreate(doc => {
         const project = doc.data();
         const notification = {
@@ -23,4 +23,19 @@ exports.projectCreated = functions.firestore
             time: admin.firestore.FieldValue.serverTimestamp()
         }
         return createNotification(notification);
+    })
+
+exports.userJoined = functions.auth.user()
+    .onCreate(user => {
+        return admin.firestore().collection('users').doc(user.uid).then(doc => {
+            
+            const newUser = doc.data()
+            const notification = {
+                content: 'New user had joined TeamFut',
+                user: `${newUser.firstName} ${newUser.lastName}`,
+                time: admin.firestore.FieldValue.serverTimestamp()
+            }
+
+        return createNotification(notification);
+        })
     })
