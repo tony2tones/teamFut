@@ -6,7 +6,6 @@ var cardStyle = {
 };
 
 const ProjectSummary = ({project}) => {
-  console.log(project.createdAt.toDate().toString());
 
   return (
     <div className="project-list section">

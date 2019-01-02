@@ -1,5 +1,5 @@
 import React from "react"
-import hdate from "human-date";
+import {format} from 'timeago.js';
 
 const Notification = (props) => {
     const {notifications} = props;
@@ -15,7 +15,7 @@ const Notification = (props) => {
                     <span className="pink-text">{item.user} </span>
                     <span>{item.content}</span>
                     <div className='grey-text note-date'>
-                        {hdate.prettyPrint(new Date(item.time))}
+                    {format(item.time.toDate().toString())}
                     </div>
                     </li>
                 )
