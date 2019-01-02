@@ -1,12 +1,13 @@
 import React from "react";
 import { format } from "timeago.js";
+import './Notifications';
 
 const Notification = props => {
   const { notifications } = props;
   return (
     <div className="section">
       <div className="ard z-depth-0">
-        <div className="card-content">
+        <div className="my-card mdc-card">
           <span className="card-title"> Notifications</span>
           <ul className="notification">
             {notifications &&
