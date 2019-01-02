@@ -4,12 +4,15 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
 import { format } from "timeago.js";
+import { joinGame } from "../../store/actions/playerActions"; 
 import hdate from "human-date";
 
 const joinGameHandler = (e) => {
   e.preventDefault();
   console.log('User has join game');
-  // this.props.createProject(this.state);
+  this.props.joinGame({
+
+  });
   // this.props.history.push('/');
 }
 
@@ -42,6 +45,12 @@ const ProjectDetails = props => {
   }
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return{
+    joinGame: (user) => dispatch(joinGame(user))
+  }
+}
+
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
@@ -53,10 +62,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps,mapDispatchToProps),
   firestoreConnect([
     {
       collection: "projects",
     }
   ])
 )(ProjectDetails);
+
+
