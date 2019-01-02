@@ -18,7 +18,7 @@ exports.projectCreated = functions.firestore
     .onCreate(doc => {
         const project = doc.data();
         const notification = {
-            content : 'Added a new event',
+            content : ' added a new event',
             user: `${project.authorFirstName}  ${project.authorLastName}`,
             time: admin.firestore.FieldValue.serverTimestamp()
         }
@@ -32,7 +32,7 @@ exports.userJoined = functions.auth.user()
             
             const newUser = doc.data()
             const notification = {
-                content: 'New user had joined TeamFut',
+                content: ' has joined TeamFut',
                 user: `${newUser.firstName} ${newUser.lastName}`,
                 time: admin.firestore.FieldValue.serverTimestamp()
             }
