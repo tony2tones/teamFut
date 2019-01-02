@@ -4,7 +4,7 @@ export const joinGame = (user) => {
          const firestore = getFirestore();
          const profile = getState().firebase.profile;
          const userId = getState().firebase.auth.uid;
-         console.log('does it even get this far?', profile);
+         console.log('does it even get this far?', profile, userId);
         //  firestore.collection('users').doc(user.uid);
         //  firestore().collection('users').doc(user.uid).get().then(doc => {
         //     const newUser = doc.data()
