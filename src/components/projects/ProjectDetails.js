@@ -8,7 +8,7 @@ import hdate from "human-date";
 
 const joinGameHandler = (e) => {
   e.preventDefault();
-  console.log('User has join game',props);
+  console.log('User has join game');
   // this.props.createProject(this.state);
   // this.props.history.push('/');
 }
@@ -48,7 +48,7 @@ const mapStateToProps = (state, ownProps) => {
   const project = projects ? projects[id] : null;
   return {
     project: project,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
   };
 };
 
@@ -56,7 +56,7 @@ export default compose(
   connect(mapStateToProps),
   firestoreConnect([
     {
-      collection: "projects"
+      collection: "projects",
     }
   ])
 )(ProjectDetails);
