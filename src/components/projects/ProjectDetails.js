@@ -4,17 +4,7 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
 import { format } from "timeago.js";
-import { joinGame } from "../../store/actions/playerActions"; 
 import hdate from "human-date";
-
-const joinGameHandler = (e) => {
-  e.preventDefault();
-  console.log('User has join game');
-  this.props.joinGame({
-
-  });
-  // this.props.history.push('/');
-}
 
 const ProjectDetails = props => {
   const { project, auth } = props;
@@ -36,7 +26,6 @@ const ProjectDetails = props => {
             {hdate.prettyPrint(
               new Date(project.createdAt.toDate().toString()) , { showTime: true })}{" "}
           </div>
-          <button className="mdc-fab" onClick={joinGameHandler}>Join game</button>
         </div>
       </div>
     );
@@ -45,29 +34,21 @@ const ProjectDetails = props => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return{
-    joinGame: (user) => dispatch(joinGame(user))
-  }
-}
-
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
   const project = projects ? projects[id] : null;
   return {
     project: project,
-    auth: state.firebase.auth,
+    auth: state.firebase.auth
   };
 };
 
 export default compose(
-  connect(mapStateToProps,mapDispatchToProps),
+  connect(mapStateToProps),
   firestoreConnect([
     {
-      collection: "projects",
+      collection: "projects"
     }
   ])
 )(ProjectDetails);
-
-
