@@ -5,6 +5,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
 import { format } from "timeago.js";
 import hdate from "human-date";
+import Join from './Join';
 
 const ProjectDetails = props => {
   const { project, auth } = props;
@@ -26,6 +27,7 @@ const ProjectDetails = props => {
             {hdate.prettyPrint(
               new Date(project.createdAt.toDate().toString()) , { showTime: true })}{" "}
           </div>
+          <Join />
         </div>
       </div>
     );
