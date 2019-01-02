@@ -6,6 +6,13 @@ import { Redirect } from "react-router-dom";
 import { format } from "timeago.js";
 import hdate from "human-date";
 
+const joinGameHandler = (e) => {
+  e.preventDefault();
+  console.log('User has join game',props);
+  // this.props.createProject(this.state);
+  // this.props.history.push('/');
+}
+
 const ProjectDetails = props => {
   const { project, auth } = props;
   if (!auth.uid) return <Redirect to="/signin" />;
@@ -26,6 +33,7 @@ const ProjectDetails = props => {
             {hdate.prettyPrint(
               new Date(project.createdAt.toDate().toString()) , { showTime: true })}{" "}
           </div>
+          <button className="mdc-fab" onClick={joinGameHandler}>Join game</button>
         </div>
       </div>
     );
