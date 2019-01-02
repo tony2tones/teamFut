@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { signUp } from "../../store/actions/authActions";
+import {MDCRipple} from '@material/ripple';
 
 class SignUp extends Component {
   state = {
@@ -46,7 +47,7 @@ class SignUp extends Component {
             <input type="text" id="lastName" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button className="btn blue lighten-1 z-depth-0">Submit</button>
+            <button className="mdc-fab">Submit</button>
           </div>
           <div className="red-text">
             {authError ? <p> {authError} </p> : null}

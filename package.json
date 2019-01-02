@@ -41,7 +41,9 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "@material/fab": "^0.42.0",
     "@material/textfield": "^0.40.0",
+    "@material/top-app-bar": "^0.42.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "firebase": "^5.3.0",
     "human-date": "^1.4.0",
