@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class Join extends Component {
   state = {
-    firstName: 'this.props.firstName',
+    firstName: this.props.firstName,
     lastName: this.props.lastName,
     status: true
   };

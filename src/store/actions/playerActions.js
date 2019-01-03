@@ -6,10 +6,10 @@ export const joinGame = (user) => {
          const profile = getState().firebase.profile;
          const userId = getState().firebase.auth.uid;
          console.log('does it even get this far?', profile, userId,'firebase has this ', firebase);
-        //  firestore.collection('users').doc(user.uid);
-        //  firestore().collection('users').doc(user.uid).get().then(doc => {
-        //     const newUser = doc.data()
-        //     console.log(newUser)
+         firestore.collection('users').doc(userId);
+         firestore.collection('users').doc(userId).get().then(doc => {
+            const newUser = doc.data();
+            console.log(newUser);
         //  .add({
         //      ...user,
         //      firstName: user.firstName,
@@ -20,7 +20,7 @@ export const joinGame = (user) => {
         //  }).catch((err) =>{
         //     dispatch({ type: 'PLAYER_ADDED_ERROR', err});
         //  })
-        // })
-    }      
+        })
+    };
 };
 

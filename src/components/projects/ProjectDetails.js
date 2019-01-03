@@ -28,7 +28,7 @@ const ProjectDetails = props => {
             {hdate.prettyPrint(
               new Date(project.createdAt.toDate().toString()) , { showTime: true })}{" "}
           </div>
-          {console.log(projectId)}
+          
           <Join  />
         </div>
       </div>
@@ -39,6 +39,7 @@ const ProjectDetails = props => {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state);
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
   const project = projects ? projects[id] : null;
