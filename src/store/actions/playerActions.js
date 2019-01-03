@@ -2,9 +2,10 @@ export const joinGame = (user) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
          // make async call to database
          const firestore = getFirestore();
+         const firebase = getFirebase();
          const profile = getState().firebase.profile;
          const userId = getState().firebase.auth.uid;
-         console.log('does it even get this far?', profile, userId);
+         console.log('does it even get this far?', profile, userId,'firebase has this ', firebase);
         //  firestore.collection('users').doc(user.uid);
         //  firestore().collection('users').doc(user.uid).get().then(doc => {
         //     const newUser = doc.data()

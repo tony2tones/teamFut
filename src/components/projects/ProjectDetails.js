@@ -8,7 +8,8 @@ import hdate from "human-date";
 import Join from './Join';
 
 const ProjectDetails = props => {
-  const { project, auth } = props;
+  const { projects, project, auth, projectId } = props;
+  
   if (!auth.uid) return <Redirect to="/signin" />;
   if (project) {
     return (
@@ -27,7 +28,8 @@ const ProjectDetails = props => {
             {hdate.prettyPrint(
               new Date(project.createdAt.toDate().toString()) , { showTime: true })}{" "}
           </div>
-          <Join />
+          {console.log(projectId)}
+          <Join  />
         </div>
       </div>
     );
