@@ -4,26 +4,26 @@ import { connect } from "react-redux";
 import { signUp } from "../../store/actions/authActions";
 import { MDCRipple } from "@material/ripple";
 import firebase from "firebase/firebase-app";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+// import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 class SignUp extends Component {
   state = {
-    isSignedIn: false,
+    // isSignedIn: false,
     email: "",
     password: "",
     firstName: "",
     lastName: ""
   };
-  uiConfig = {
-    signInFlow: "popup",
-    signInOptions: [
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      firebase.auth.TwitterAuthProvider.PROVIDER_ID
-    ],
-    callbacks: {
-      signInSuccess: () => false
-    }
-  };
+  // uiConfig = {
+  //   signInFlow: "popup",
+  //   signInOptions: [
+  //     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+  //     firebase.auth.TwitterAuthProvider.PROVIDER_ID
+  //   ],
+  //   callbacks: {
+  //     signInSuccess: () => false
+  //   }
+  // };
 
   handleChange = e => {
     this.setState({
@@ -33,27 +33,27 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({
-      isSignedIn: !isSignedIn
-    });
+    // this.setState({
+    //   isSignedIn: !isSignedIn
+    // });
     this.props.signUp(this.state);
   };
 
-  componentDidMount = () => {
-    firebase.initializeApp({
-      apiKey: "AIzaSyBjHuA4bjkdCpRioG5lus4ln7LJuc8KpWY",
-      authDomain: "team-fut.firebaseapp.com"
-    });
-    firebase.auth().onAuthStateChanged(user => {
-      this.setState({
-        isSignedIn: !!user
-      });
-    });
-  };
+  // componentDidMount = () => {
+  //   firebase.initializeApp({
+  //     apiKey: "AIzaSyBjHuA4bjkdCpRioG5lus4ln7LJuc8KpWY",
+  //     authDomain: "team-fut.firebaseapp.com"
+  //   });
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     this.setState({
+  //       isSignedIn: !!user
+  //     });
+  //   });
+  // };
 
   render() {
     const { authError, auth } = this.props;
-    if (auth.uid && isSignedIn === true) return <Redirect to="/" />;
+    if (auth.uid) return <Redirect to="/" />;
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -81,12 +81,12 @@ class SignUp extends Component {
             {authError ? <p> {authError} </p> : null}
           </div>
         </form>
-        <div>
+        {/* <div>
           <StyledFirebaseAuth
             uiConfig={this.uiConfig}
             firebaseAuth={firebase.auth()}
-          />
-        </div>
+          /> 
+        </div>*/}
       </div>
     );
   }
