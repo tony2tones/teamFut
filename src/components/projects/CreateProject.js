@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createProject } from '../../store/actions/projectActions';
 import { Redirect } from 'react-router-dom';
+import {MDCRipple} from '@material/ripple';
 
 class CreateProject extends Component {
     state = {
@@ -36,7 +37,7 @@ class CreateProject extends Component {
                     <textarea className="materialize-textarea" id="content" onChange={this.handleChange}></textarea>
                     </div>
                     <div className="input-field">
-                        <button className="btn blue lighten-1 z-depth-0">Submit</button>
+                        <button className="mdc-fab">Submit</button>
                     </div>
                 </form>
             </div>

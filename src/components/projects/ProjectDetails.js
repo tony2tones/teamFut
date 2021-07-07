@@ -5,9 +5,10 @@ import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
 import { format } from "timeago.js";
 import hdate from "human-date";
+import Join from './Join';
 
 const ProjectDetails = props => {
-  const { project, auth } = props;
+  const { projects, project, auth } = props;
   if (!auth.uid) return <Redirect to="/signin" />;
   if (project) {
     return (
@@ -16,7 +17,7 @@ const ProjectDetails = props => {
           <div className="card-title">
             <h5>{project.title}</h5>
           </div>
-          <p> {project.content}</p>
+          <p> {project.content} </p>
           <div>
             {" "}
             Posted by {project.authorFirstName} {project.authorLastName}
@@ -26,6 +27,8 @@ const ProjectDetails = props => {
             {hdate.prettyPrint(
               new Date(project.createdAt.toDate().toString()) , { showTime: true })}{" "}
           </div>
+          
+          <Join  />
         </div>
       </div>
     );

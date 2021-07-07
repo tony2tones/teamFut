@@ -2,14 +2,28 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { signUp } from "../../store/actions/authActions";
+import { MDCRipple } from "@material/ripple";
+import firebase from "firebase/firebase-app";
+// import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 class SignUp extends Component {
   state = {
+    // isSignedIn: false,
     email: "",
     password: "",
     firstName: "",
     lastName: ""
   };
+  // uiConfig = {
+  //   signInFlow: "popup",
+  //   signInOptions: [
+  //     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+  //     firebase.auth.TwitterAuthProvider.PROVIDER_ID
+  //   ],
+  //   callbacks: {
+  //     signInSuccess: () => false
+  //   }
+  // };
 
   handleChange = e => {
     this.setState({
@@ -19,8 +33,23 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    // this.setState({
+    //   isSignedIn: !isSignedIn
+    // });
     this.props.signUp(this.state);
   };
+
+  // componentDidMount = () => {
+  //   firebase.initializeApp({
+  //     apiKey: "AIzaSyBjHuA4bjkdCpRioG5lus4ln7LJuc8KpWY",
+  //     authDomain: "team-fut.firebaseapp.com"
+  //   });
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     this.setState({
+  //       isSignedIn: !!user
+  //     });
+  //   });
+  // };
 
   render() {
     const { authError, auth } = this.props;
@@ -46,12 +75,18 @@ class SignUp extends Component {
             <input type="text" id="lastName" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button className="btn blue lighten-1 z-depth-0">Submit</button>
+            <button className="mdc-fab">Submit</button>
           </div>
           <div className="red-text">
             {authError ? <p> {authError} </p> : null}
           </div>
         </form>
+        {/* <div>
+          <StyledFirebaseAuth
+            uiConfig={this.uiConfig}
+            firebaseAuth={firebase.auth()}
+          /> 
+        </div>*/}
       </div>
     );
   }
@@ -70,4 +105,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);
